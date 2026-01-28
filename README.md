@@ -54,7 +54,12 @@ Very important for **payments & order systems**.
 
 ### 1️⃣ Install dependencies
 ```bash
-npm install
+npm init -y
+npm i express mongoose dotenv zod nanoid
+```
+### 1️⃣ Install Devdependencies
+```bash
+npm i -D nodemon
 ```
 
 ## 2️⃣ Start MongoDB locally
