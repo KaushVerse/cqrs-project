@@ -28,47 +28,6 @@ This project is designed to show **how real scalable systems work**:
 
 ---
 
-## 🏗️ Project Architecture (CQRS)
-
-Client
-|
-|── Command API (Write)
-| └── OrderWrite (Mongo)
-| ↓
-| Projection
-| ↓
-|── Query API (Read)
-└── OrderRead (Mongo)
-
-
----
-
-## 📂 Folder Structure
-
-src/
-config/
-db.js
-command/
-models/OrderWrite.js
-handlers/createOrder.js
-routes/commandRoutes.js
-query/
-models/OrderRead.js
-handlers/getOrder.js
-handlers/listOrders.js
-routes/queryRoutes.js
-projection/
-projectOrderToRead.js
-app.js
-server.js
-
-.env
-Dockerfile
-docker-compose.yml
-
-
----
-
 ## ⚙️ Tech Stack
 
 - Node.js
@@ -96,26 +55,36 @@ Very important for **payments & order systems**.
 ### 1️⃣ Install dependencies
 ```bash
 npm install
-2️⃣ Start MongoDB locally
-mongod
-3️⃣ Create .env
+```
+
+## 2️⃣ Start MongoDB locally
+### 3️⃣ Create .env
 PORT=3000
 MONGODB_URI=mongodb://127.0.0.1:27017/cqrs_demo
-4️⃣ Start server
+### 4️⃣ Start server
+```bash
 node src/server.js
+```
 Server will run at:
 
 http://localhost:3000
-🐳 Running Project (Using Docker) ✅ Recommended
-1️⃣ Start Docker containers
+## 🐳 Running Project (Using Docker) ✅ Recommended
+### 1️⃣ Start Docker containers
+##### 
+```bash
 docker compose up -d --build
-2️⃣ Check running containers
+```
+### 2️⃣ Check running containers
+```bash
 docker ps
-3️⃣ View logs
+```
+### 3️⃣ View logs
+```bash
 docker logs cqrs-api
+```
 Expected logs:
 
-✅ MongoDB connected
+## ✅ MongoDB connected
 🚀 Server running on port 3000
 🧪 API Testing (Postman)
 ➕ Create Order (Command)
@@ -132,22 +101,23 @@ Body:
     { "sku": "sku_mouse", "qty": 2, "price": 599 }
   ]
 }
-📖 Get Order (Query)
+### 📖 Get Order (Query)
 GET /queries/orders/:orderId
-📃 List Orders (Query)
+### 📃 List Orders (Query)
 GET /queries/orders
-🗂️ Database Collections
+### 🗂️ Database Collections
 Collection	Purpose
 order_writes	Command (write model)
 order_reads	Query (read model / projection)
-🖥️ MongoDB GUI (Optional)
+### 🖥️ MongoDB GUI (Optional)
 MongoDB Compass
-
+```bash
 mongodb://localhost:27017
+```
 Or browser GUI (mongo-express if enabled)
 
 http://127.0.0.1:8081
-🧠 Key Learnings from this Project
+## 🧠 Key Learnings from this Project
 CQRS pattern in practice
 
 Idempotent API design
@@ -158,7 +128,7 @@ Dockerizing Node.js apps
 
 Clean scalable backend structure
 
-🚀 Future Improvements
+## 🚀 Future Improvements
 Async projection using RabbitMQ / Kafka
 
 Separate read & write databases
@@ -169,22 +139,10 @@ Authentication & authorization
 
 Kubernetes deployment
 
-👨‍💻 Author
+## 👨‍💻 Author
 Built with ❤️ by Kaush
 For learning, interviews, and real-world backend mastery.
 
-⭐ Final Note
+## ⭐ Final Note
 If you are learning system design, backend engineering, or microservices
 this project is a must-have in your portfolio 💯
-
-
----
-
-Bro honestly —  
-👉 **Ye README recruiter + senior dev dono ko impress karega** 😎  
-
-Agar bole to next:
-- README me **architecture diagram**
-- Swagger / OpenAPI docs
-- CI/CD GitHub Actions
-- Production hardening notes
