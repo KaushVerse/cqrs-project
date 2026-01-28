@@ -1,0 +1,37 @@
+# Node modules (container ke andar install honge)
+node_modules
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Git
+.git
+.gitignore
+
+# Docker files
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# Tests & docs (prod image me nahi chahiye)
+test
+tests
+coverage
+docs
+
+# Misc
+*.md
